@@ -59,11 +59,11 @@ const App = () => {
     setB({ ...b, [i]: turn });
   };
 
-  const renderSquare = (i: number, squareClass: string) => {
+  const renderSquare = (i: number, squareClass?: string) => {
     return (
       <Square
         i={i}
-        squareClass={squareClass}
+        squareClass={squareClass || ""}
         squareClick={handleSquareClick(i)}
         b={b}
       />
@@ -78,9 +78,9 @@ const App = () => {
           .fill(null)
           .map((_, i) =>
             i % 3 === 0 ? (
-              <span key={uid(i)}>{renderSquare(i, "box clearLeft")}</span>
+              <span key={uid(i)}>{renderSquare(i, "clearLeft")}</span>
             ) : (
-              <span key={uid(i)}>{renderSquare(i, "box")}</span>
+              <span key={uid(i)}>{renderSquare(i)}</span>
             )
           )}
       </div>

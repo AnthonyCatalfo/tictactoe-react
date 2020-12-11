@@ -14,7 +14,11 @@ export const Square = (props: SquareProps) => {
     squareClick();
   };
   return (
-    <button type="button" className={squareClass} onClick={handleClick}>
+    <button
+      type="button"
+      className={`${squareClass} box`}
+      onClick={handleClick}
+    >
       {b[i]}
     </button>
   );
