@@ -49,7 +49,6 @@ const App = () => {
     if (b[i] !== D.E || isWinner === Status.WINNER) {
       return;
     }
-
     setMoves((m) => m + 1);
     if (turn === D.X) {
       setTurn(D.O);
@@ -60,25 +59,29 @@ const App = () => {
     setB({ ...b, [i]: turn });
   };
 
-  const renderSquare = (i: number) => {
-    return <Square i={i} squareClick={handleSquareClick(i)} b={b} />;
+  const renderSquare = (i: number, squareClass: string) => {
+    return (
+      <Square
+        i={i}
+        squareClass={squareClass}
+        squareClick={handleSquareClick(i)}
+        b={b}
+      />
+    );
   };
 
   return (
     <div className="ml-5 mt-3">
       <h3>{status}</h3>
-      <div>
-        {Array(ARRAY_LENGTH)
+      <div className="floatContainer">
+        {Array(9)
           .fill(null)
-          .map(
-            (_, i) =>
-              i % 3 === 0 && (
-                <Row key={uid(i)}>
-                  <span>{renderSquare(i)}</span>
-                  <span>{renderSquare(i + 1)}</span>
-                  <span>{renderSquare(i + 2)}</span>
-                </Row>
-              )
+          .map((_, i) =>
+            i % 3 === 0 ? (
+              <span key={uid(i)}>{renderSquare(i, "box clearLeft")}</span>
+            ) : (
+              <span key={uid(i)}>{renderSquare(i, "box")}</span>
+            )
           )}
       </div>
       <Row className="ml-3 mt-3">

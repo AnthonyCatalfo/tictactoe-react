@@ -5,16 +5,17 @@ interface SquareProps {
   i: number;
   squareClick: () => void;
   b: Box;
+  squareClass: string;
 }
 
 export const Square = (props: SquareProps) => {
-  const { i, squareClick, b } = props;
+  const { i, squareClick, b, squareClass } = props;
   const handleClick = () => {
     squareClick();
   };
   return (
-    <button type="button" className="square" onClick={handleClick}>
-      {b[Number(i)]}
+    <button type="button" className={squareClass} onClick={handleClick}>
+      {b[i]}
     </button>
   );
 };
