@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Row } from "reactstrap";
+import { Button, Row } from "reactstrap";
 import { uid } from "react-uid";
 
 import { Box, D, Status } from "../models/Box";
@@ -85,7 +85,7 @@ const App = () => {
           )}
       </div>
       <Row className="ml-3 mt-3">
-        <button
+        <Button
           onClick={() => {
             setTurn(D.X);
             setB(reset);
@@ -94,7 +94,7 @@ const App = () => {
           }}
         >
           Reset
-        </button>
+        </Button>
       </Row>
     </div>
   );
